@@ -2,6 +2,8 @@ import React from 'react'
 import './App.css'
 import questions from "./data";
 import { useState } from "react";
+import toast,{Toaster} from "react-hot-toast";
+import { ArrowRight } from "lucide-react";
 
 const App = () => {
 
@@ -43,7 +45,7 @@ else {
       <h1 className="app-heading">Quiz App</h1>
 
       <p className="text-question-no">
-        Question: {questionIndex + 1}
+        <u>Question: {questionIndex + 1}</u>
       </p>
 
       <p className="text-question">

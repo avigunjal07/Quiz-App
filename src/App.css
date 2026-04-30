@@ -1,21 +1,22 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #0f172a;
+  background-color: #FF70BF;
   font-family: "Segoe UI", sans-serif;
   color: white;
 }
 
 .app-heading {
   text-align: center;
-  font-size: 32px;
+  font-size: 45px;
   margin-bottom: 20px;
+  color: #462C7D;
 }
 
 .text-question-no {
   text-align: center;
-  font-size: 14px;
-  color: #cbd5f5;
+  font-size: 20px;
+  color: #831C91;
   margin-bottom: 10px;
 }
 
@@ -26,10 +27,10 @@ body {
 }
 
 .option-card {
-  background-color: #1e293b;
+  background-color: #831C91;
   padding: 14px;
   margin: 10px auto;
-  width: 70%;
+  width: 30%;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
@@ -37,7 +38,6 @@ body {
 }
 
 .option-card:hover {
-  background-color: #334155;
   border: 1px solid #38bdf8;
 }
 
@@ -45,11 +45,6 @@ body {
   display: block;
   margin: 30px auto 0;
   cursor: pointer;
-  color: #38bdf8;
+  color: #831C91;
   transition: 0.3s;
-}
-
-.img-next-question:hover {
-  transform: scale(1.2);
-  color: #0ea5e9;
 }

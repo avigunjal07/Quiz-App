@@ -15,9 +15,63 @@ const App = () => {
 
   const currentQuestion = questions[questionIndex];
 
+  const checkAnswer = (selectedOption,idx) => {
+    if (currentQuestion.answer === selectedOption) {
+  toast.success("Correct Answer!");
+;
+}
+
+else {
+  toast.error(
+    "Wrong Answer! The correct answer is: " + currentQuestion.answer
+  );
+;
+}
+
+  };
+
   return (
     <div>
-      
+      <h1 className="app-heading">Quiz App</h1>
+
+      <p className="text-question-no">
+        Question: {questionIndex + 1}
+      </p>
+
+      <p className="text-question">
+        {currentQuestion.question}
+      </p>
+
+      {currentQuestion.options.map((option, idx) => {
+        return (
+          <div
+            key={idx}
+            className="option-card"
+            onClick={() => {
+              checkAnswer(option,idx);
+            }}
+          >
+            {option}
+          </div>
+        );
+      })}
+
+      <ArrowRight
+        className="img-next-question"
+        onClick={() => {
+          if (questionIndex < questions.length - 1) {
+            setQuestionIndex(questionIndex + 1);
+             setOptionStyles({
+        0: {},
+        1: {},
+        2: {},
+        3: {},
+      });
+          }
+        }}
+      />
+      <Toaster />
+
     </div>
   )
 }

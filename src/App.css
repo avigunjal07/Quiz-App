@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+}
+
+.app-heading {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.text-question-no {
+  text-align: center;
+  font-size: 14px;
+  color: #cbd5f5;
+  margin-bottom: 10px;
+}
+
+.text-question {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.option-card {
+  background-color: #1e293b;
+  padding: 14px;
+  margin: 10px auto;
+  width: 70%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.option-card:hover {
+  background-color: #334155;
+  border: 1px solid #38bdf8;
+}
+
+.img-next-question {
+  display: block;
+  margin: 30px auto 0;
+  cursor: pointer;
+  color: #38bdf8;
+  transition: 0.3s;
+}
+
+.img-next-question:hover {
+  transform: scale(1.2);
+  color: #0ea5e9;
+}

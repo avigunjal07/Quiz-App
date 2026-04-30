@@ -18,14 +18,22 @@ const App = () => {
   const checkAnswer = (selectedOption,idx) => {
     if (currentQuestion.answer === selectedOption) {
   toast.success("Correct Answer!");
-;
+
+  setOptionStyles({
+    ...optionStyles,
+    [idx]: { backgroundColor: "lightgreen" }
+  });
 }
 
 else {
   toast.error(
     "Wrong Answer! The correct answer is: " + currentQuestion.answer
   );
-;
+
+  setOptionStyles({
+    ...optionStyles,
+    [idx]: { backgroundColor: "lightcoral" },
+  });
 }
 
   };

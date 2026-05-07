@@ -10,14 +10,14 @@ const questions = [
     answer: "CSS",
   },
   {
-    question: "Which tag is used to create a hyperlink in HTML?",
+    question: "What does JSX stand for?",
     options: [
-      "<h1>",
-      "<a>",
-      "<link>",
-      "<href>"
+      "Java Syntax Extension",
+      "JavaScript XML",
+      "Java Source XML",
+      "JSON XML"
     ],
-    answer: "<href>",
+    answer: "JavaScript XML",
   },
   {
     question: "Which symbol is used to end a statement in Java?",
@@ -40,14 +40,14 @@ const questions = [
     answer: "float",
   },
   {
-    question: "Which keyword is used to define a constant in Java?",
+    question: "Which hook is used to manage state in React?",
     options: [
-      "const",
-      "define",
-      "static",
-      "final"
+      "useEffect",
+      "useState",
+      "useContext",
+      "useRef"
     ],
-    answer: "const",
+    answer: "useState",
   },
   {
     question: "Which property is used in CSS to change text color?",

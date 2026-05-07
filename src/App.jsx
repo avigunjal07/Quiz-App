@@ -1,44 +1,69 @@
-import React from 'react'
-import './App.css'
-import questions from "./data";
-import { useState } from "react";
-import toast,{Toaster} from "react-hot-toast";
+import React, { useState } from "react";
+import "./App.css";
+import questions from "./data.js";
+import toast, { Toaster } from "react-hot-toast";
 import { ArrowRight } from "lucide-react";
 
 const App = () => {
+  const [questionIndex, setQuestionIndex] = useState(0);
 
-   const [questionIndex, setQuestionIndex] = useState(0);
-  const [optionStyles, setOptionStyles] = useState({
-  0: {},
-  1: {},
-  2: {},
-  3: {},
-  });
+  const [score, setScore] = useState(0);
+
+  const [showResult, setShowResult] = useState(false);
+
+  const [answered, setAnswered] = useState(false);
 
   const currentQuestion = questions[questionIndex];
 
-  const checkAnswer = (selectedOption,idx) => {
+  const checkAnswer = (selectedOption) => {
+    if (answered) return;
+
+    setAnswered(true);
+
     if (currentQuestion.answer === selectedOption) {
-  toast.success("Correct Answer!");
-
-  setOptionStyles({
-    ...optionStyles,
-    [idx]: { backgroundColor: "lightgreen" }
-  });
-}
-
-else {
-  toast.error(
-    "Wrong Answer! The correct answer is: " + currentQuestion.answer
-  );
-
-  setOptionStyles({
-    ...optionStyles,
-    [idx]: { backgroundColor: "lightcoral" },
-  });
-}
-
+      toast.success("Correct Answer!");
+      setScore(score + 1);
+    } else {
+      toast.error(
+        "Wrong Answer! Correct answer is: " +
+          currentQuestion.answer
+      );
+    }
   };
+
+  const nextQuestion = () => {
+    if (questionIndex < questions.length - 1) {
+      setQuestionIndex(questionIndex + 1);
+      setAnswered(false);
+    } else {
+      setShowResult(true);
+    }
+  };
+
+  if (showResult) {
+    return (
+      <div className="result-container">
+        <h1>Quiz Completed 🎉</h1>
+
+        <h2>
+          Your Score: {score} / {questions.length}
+        </h2>
+
+        <button
+          onClick={() => {
+            setQuestionIndex(0);
+            setScore(0);
+            setShowResult(false);
+            setAnswered(false);
+          }}
+        >
+          Restart Quiz
+        </button>
+
+        <Toaster />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -57,9 +82,7 @@ else {
           <div
             key={idx}
             className="option-card"
-            onClick={() => {
-              checkAnswer(option,idx);
-            }}
+            onClick={() => checkAnswer(option)}
           >
             {option}
           </div>
@@ -68,22 +91,12 @@ else {
 
       <ArrowRight
         className="img-next-question"
-        onClick={() => {
-          if (questionIndex < questions.length - 1) {
-            setQuestionIndex(questionIndex + 1);
-             setOptionStyles({
-        0: {},
-        1: {},
-        2: {},
-        3: {},
-      });
-          }
-        }}
+        onClick={nextQuestion}
       />
+
       <Toaster />
-
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
